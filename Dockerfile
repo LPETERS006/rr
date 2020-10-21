@@ -1,8 +1,8 @@
 FROM r-base:latest
-RUN /bin/sh -c apt-get update && apt-get upgrade -y && apt clean cache \
+RUN apt update && apt upgrade -y && apt clean cache \
   && apt-get install -t unstable -y --no-install-recommends libpq-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev \
-  && mkdir -p /opt/software/setup/R/ /opt/software/R/; \	
-  { echo 'install.packages("RPostgreSQL")'; \
+  && mkdir -p /opt/software/setup/R/ /opt/software/R/ \	
+  && { echo 'install.packages("RPostgreSQL")'; \
     echo 'install.packages("devtools")'; \
     echo 'install.packages("config")'; \
     echo 'install.packages("log4r")'; \
