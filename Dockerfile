@@ -1,6 +1,6 @@
 FROM r-base:latest
-RUN apt update && apt upgrade -y && apt clean cache \
-  && apt-get install -t unstable -y --no-install-recommends libpq-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev \
+RUN apt update \
+  && DEBIAN_FRONTEND=noninteractive apt-get install -t unstable -y --no-install-recommends libpq-dev build-essential libcurl4-gnutls-dev libxml2-dev libssl-dev \
   && mkdir -p /opt/software/setup/R/ /opt/software/R/ \	
   && { echo 'install.packages("RPostgreSQL")'; \
     echo 'install.packages("devtools")'; \
